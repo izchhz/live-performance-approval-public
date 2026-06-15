@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "default_city": "YOUR_CITY",
+  "default_submitter": {
+    "name": "AUTHORIZED_SUBMITTER_NAME",
+    "handwriting_font_preference": "LOCAL_HANDWRITING_FONT_NAME"
+  },
+  "companies": {
+    "applicant_a": {
+      "short_name": "APPLICANT_A",
+      "legal_name": "YOUR_APPLICANT_COMPANY_LEGAL_NAME",
+      "performance_license_no": "YOUR_PERFORMANCE_LICENSE_NUMBER",
+      "registered_address": "YOUR_REGISTERED_ADDRESS",
+      "seal_path": "assets/seals/YOUR_APPLICANT_SEAL.png",
+      "roles": ["domestic_applicant", "foreign_applicant"]
+    },
+    "venue_a": {
+      "short_name": "VENUE_A",
+      "legal_name": "YOUR_VENUE_COMPANY_LEGAL_NAME",
+      "performance_license_no": "YOUR_VENUE_LICENSE_NUMBER_IF_ANY",
+      "registered_address": "YOUR_VENUE_ADDRESS",
+      "seal_path": "assets/seals/YOUR_VENUE_SEAL.png",
+      "roles": ["domestic_applicant", "venue"]
+    }
+  },
+  "domestic": {
+    "approval_authority": "LOCAL_DISTRICT_CULTURE_AUTHORITY",
+    "default_time_range": "20:00-22:00",
+    "required_final_files": ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10"]
+  },
+  "foreign": {
+    "approval_authority": "PROVINCIAL_CULTURE_AUTHORITY",
+    "applicant_company_key": "applicant_a",
+    "venue_company_key": "venue_a",
+    "generate_application_form_00": false,
+    "default_time_range": "20:00-22:00"
+  }
+}

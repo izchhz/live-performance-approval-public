@@ -1,0 +1,32 @@
+# Local/private configuration
+*.local.json
+*.private.json
+company-profile.local.json
+company-profile.private.json
+
+# Generated project outputs
+01_演出项目/
+example-project/
+**/02_生成中间文件/
+**/03_最终提交材料/
+**/04_缺失资料与提醒/
+
+# Private/binary materials that should not be public by default
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.heic
+*.doc
+*.docx
+*.mp3
+*.mp4
+*.mov
+*.m4a
+*.wav
+
+# Python/system
+__pycache__/
+.DS_Store
+.venv/
+venv/

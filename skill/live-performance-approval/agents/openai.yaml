@@ -1,0 +1,3 @@
+display_name: Live Performance Approval
+short_description: Generate domestic and foreign performance approval packages with local templates, configurable company profiles, media compression, and QA checks.
+default_prompt: Use this skill to classify the approval type, initialize the project folders, generate official approval materials from local templates, compress media, and produce a QA/reminder report.
