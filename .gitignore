@@ -24,6 +24,11 @@ example-project/
 *.mov
 *.m4a
 *.wav
+*.ttf
+*.otf
+*.ttc
+*.woff
+*.woff2
 
 # Python/system
 __pycache__/

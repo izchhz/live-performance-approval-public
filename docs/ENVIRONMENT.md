@@ -30,9 +30,20 @@ python3 -m pip install pymupdf pytesseract opencc
 
 ## Fonts
 
-- Chinese government-style documents should use Songti/Song-style fonts where possible.
-- Handwritten submitter labels require a local handwriting font.
-- Artist signatures should use real signature images when available; otherwise use varied local handwriting/signature fonts.
+This public package does not bundle handwriting fonts because many commercial Chinese and signature fonts cannot be redistributed on GitHub.
+
+Recommended setup:
+
+- Chinese official-document text: use a Songti/Song-style font available on the operator machine, such as SimSun, Songti SC, Noto Serif CJK SC, or Source Han Serif SC.
+- Chinese handwritten submitter labels: install at least one licensed Chinese handwriting font locally. If a commercial font is used, keep it outside the public repository.
+- Chinese artist signatures: prefer real signature images. If unavailable, install several licensed Chinese handwriting fonts and rotate them per artist; reject fonts that render as boxes, look printed, or look too uniform.
+- English/foreign artist signatures: install one or more licensed signature-style Latin fonts locally, or use real signature images when available.
+
+Public-repo font policy:
+
+- Do not commit `.ttf`, `.otf`, `.ttc`, `.woff`, or `.woff2` font files unless their license explicitly permits redistribution.
+- If a team has licensed fonts, place them in a private package or a local path outside Git, then map their names in the runtime configuration.
+- See `skill/live-performance-approval/assets/fonts/README.md` for the expected font categories and fallback rules.
 
 ## Validation
 

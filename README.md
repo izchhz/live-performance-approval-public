@@ -26,8 +26,9 @@ skill/live-performance-approval/assets
 1. Install system dependencies listed in [docs/ENVIRONMENT.md](docs/ENVIRONMENT.md).
 2. Copy `skill/live-performance-approval/assets/config/company-profile.example.json` to a private local config file.
 3. Add your local Word templates under `skill/live-performance-approval/assets/templates/`.
-4. Add seal images only in a private local branch or untracked local file area.
-5. Ask an agent to use `skill/live-performance-approval` to initialize a project and generate approval materials.
+4. Install or configure local fonts as described in `skill/live-performance-approval/assets/fonts/README.md`.
+5. Add seal images only in a private local branch or untracked local file area.
+6. Ask an agent to use `skill/live-performance-approval` to initialize a project and generate approval materials.
 
 Example:
 

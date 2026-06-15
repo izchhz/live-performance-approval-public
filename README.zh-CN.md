@@ -25,8 +25,9 @@ skill/live-performance-approval/assets
 1. 按 [中文环境说明](docs/zh-CN/环境说明.md) 安装依赖。
 2. 复制 `skill/live-performance-approval/assets/config/company-profile.example.json` 为本地私有配置。
 3. 在 `skill/live-performance-approval/assets/templates/` 中放入你自己的 Word 模板。
-4. 真实公章只放在本地私有配置或私有分支中，不要提交到公开仓库。
-5. 让 agent 使用 `skill/live-performance-approval` 初始化项目并生成报批材料。
+4. 按 `skill/live-performance-approval/assets/fonts/README.md` 安装或配置本机字体。
+5. 真实公章只放在本地私有配置或私有分支中，不要提交到公开仓库。
+6. 让 agent 使用 `skill/live-performance-approval` 初始化项目并生成报批材料。
 
 示例：
 
@@ -44,6 +45,7 @@ python3 skill/live-performance-approval/scripts/init_project.py \
 ## 中文资料索引
 
 - [环境说明](docs/zh-CN/环境说明.md)
+- [字体要求](skill/live-performance-approval/assets/fonts/README.md)
 - [整体流程](docs/zh-CN/整体流程.md)
 - [Agent 执行手册](docs/zh-CN/Agent执行手册.md)
 - [配置说明](docs/zh-CN/配置说明.md)
