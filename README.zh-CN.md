@@ -1,5 +1,7 @@
 # Live Performance Approval Automation 中文说明
 
+这是中文说明副本。GitHub 首页默认显示的中文介绍见 [README.md](README.md)。
+
 这个仓库提供一套给 AI agent 使用的演出报批材料生成工作流，用于整理和生成现场音乐演出相关的营业性演出报批资料。
 
 它支持两类报批分支：
