@@ -1,5 +1,7 @@
 # Live Performance Approval Automation
 
+中文说明：see [README.zh-CN.md](README.zh-CN.md).
+
 This repository packages an AI-agent workflow for preparing Chinese commercial performance approval materials for live music projects.
 
 It supports two routing branches:
