@@ -2,6 +2,8 @@
 
 中文说明：see [README.md](README.md).
 
+Current public version: `v2026.06.17.1`. See [CHANGELOG.md](CHANGELOG.md).
+
 This repository packages an AI-agent workflow for preparing Chinese commercial performance approval materials for live music projects.
 
 It supports two routing branches:
@@ -48,3 +50,9 @@ python3 skill/live-performance-approval/scripts/init_project.py \
 Do not push private data to a public Git remote. Use a separate private repository or private branch with no shared public history for real company materials.
 
 See [docs/SANITIZATION.md](docs/SANITIZATION.md).
+
+## v2026.06.17.1 Policy Updates
+
+- For foreign split-bill projects, video requirements are counted per band/act: each band usually needs 1-2 videos, rather than the whole event needing only 1-2 videos.
+- For foreign `02` performer certificate scan Word files, the page should contain only the certificate/passport scan image itself. Do not add an extra name label, heading, or explanatory text inside the page; keep the name in the filename only.
+- For foreign `04` artist consent letters, generated signatures should follow the script of the name: Latin-script names use Latin signature fonts, Chinese names use Chinese handwriting fonts. Real signatures remain preferred when available and count-matched.

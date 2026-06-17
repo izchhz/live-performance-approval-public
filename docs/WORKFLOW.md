@@ -62,6 +62,10 @@ video/audio files
 
 Local regulations vary. Keep policy-specific requirements in configuration and references.
 
+Foreign split-bill projects need media checks per band/act: each band usually needs 1-2 compressed videos, while audio should cover every final song.
+
+Foreign performer document scans should not include extra page labels. The Word page should contain only the certificate/passport scan image itself; keep performer names in filenames and structured rosters.
+
 ## 5. QA
 
 Render DOCX/PDF outputs and inspect:
@@ -73,6 +77,8 @@ Render DOCX/PDF outputs and inspect:
 - signature layout
 - translation consistency
 - media filenames and compression parameters
+- for foreign split-bill projects, per-band video coverage
+- for foreign consent letters, Latin names use Latin signature fonts and Chinese names use Chinese handwriting fonts unless real signatures are available
 
 ## 6. Deliver
 

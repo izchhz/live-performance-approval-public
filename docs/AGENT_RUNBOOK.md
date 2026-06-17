@@ -17,6 +17,9 @@ This runbook is written for AI agents using the skill.
 - If a name field asks for performers, use real on-stage performer names, not the band name.
 - If a song lacks required media, remove it from all relevant output lists and re-number.
 - If translation is needed, keep one translation map and reuse it everywhere.
+- For foreign split-bill projects, count video requirements per band/act; each band usually needs 1-2 videos.
+- For foreign performer certificate scan Word files, place only the certificate/passport scan image on the page; do not add an extra name label, heading, or explanatory text.
+- For foreign artist consent signatures, use Latin signature fonts for Latin-script names and Chinese handwriting fonts for Chinese names unless real signatures are available and count-matched.
 
 ## Output Rules
 
@@ -33,5 +36,6 @@ Stop and report when:
 - a document scan is incomplete or unreadable
 - ID checksum validation fails
 - passport/travel document validity cannot be read
+- a foreign split-bill band/act does not meet the video material requirement
 - generated PDF/DOCX visually overflows or has wrong page count
 - public branch contains private data

@@ -30,6 +30,9 @@ description: Generate and QA Chinese commercial performance approval packages fo
 - Treat `00_项目主档/项目主档.json` or `.yaml` as the source of truth after project setup.
 - Do not include non-performing staff in performer lists.
 - Translate all foreign text in event names, song titles, lyrics, and media filenames, and keep translations consistent.
+- For foreign split-bill projects, count video requirements per band/act; each band usually needs 1-2 videos.
+- For foreign performer certificate scan Word files, place only the certificate/passport scan image on the page. Do not add extra text name labels, headings, or explanatory text inside the page.
+- For foreign artist consent signatures, use Latin signature fonts for Latin-script names and Chinese handwriting fonts for Chinese names unless real signature images are available and count-matched.
 - Do visual QA after DOCX/PDF generation. Check page count, seal placement, signatures, highlights, ID/passport completeness, and text overflow.
 - This public package contains placeholders only. Each organization must add its own private templates, seals, company profile, and authorized signer documents locally.
 

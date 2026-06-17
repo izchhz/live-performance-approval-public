@@ -2,6 +2,8 @@
 
 这是中文说明副本。GitHub 首页默认显示的中文介绍见 [README.md](README.md)。
 
+当前公开版版本：`v2026.06.17.1`。更新记录见 [CHANGELOG.md](CHANGELOG.md)。
+
 这个仓库提供一套给 AI agent 使用的演出报批材料生成工作流，用于整理和生成现场音乐演出相关的营业性演出报批资料。
 
 它支持两类报批分支：
@@ -46,6 +48,7 @@ python3 skill/live-performance-approval/scripts/init_project.py \
 
 ## 中文资料索引
 
+- [更新记录](CHANGELOG.md)
 - [环境说明](docs/zh-CN/环境说明.md)
 - [字体要求](skill/live-performance-approval/assets/fonts/README.md)
 - [整体流程](docs/zh-CN/整体流程.md)
@@ -59,3 +62,9 @@ python3 skill/live-performance-approval/scripts/init_project.py \
 不要把真实公司资料推送到公开 GitHub。真实公司信息、公章、身份证、护照、签名、完成案例，应放在单独的私有仓库或本地未跟踪文件中。
 
 详细规则见 [公开去敏策略](docs/zh-CN/公开去敏策略.md)。
+
+## v2026.06.17.1 策略更新
+
+- 涉外拼盘项目的视频材料按乐队/艺人组合分别计算：每个乐队通常需要 1-2 首视频，不按整场项目只准备 1-2 首。
+- 涉外 `02_艺人证件扫描件` 的 Word 页面只放证件或护照扫描图像本身，不额外添加姓名、标题或说明文字；姓名只保留在文件名中。
+- 涉外 `04_艺人同意函` 的模拟签名按姓名文字系统区分：英文/拉丁姓名使用英文 signature 字体，中文姓名使用中文手写字体；如有真实签名且人数匹配，优先使用真实签名。
