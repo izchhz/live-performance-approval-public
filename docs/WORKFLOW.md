@@ -64,6 +64,10 @@ Local regulations vary. Keep policy-specific requirements in configuration and r
 
 Foreign passport fields should be validated against ICAO Doc 9303 TD3 MRZ check digits before trusting OCR. Missing, cropped, blurred, or failed MRZ should be reported for manual review.
 
+HK/Macau/Taiwan travel documents should also use MRZ extraction and validation when MRZ is present and supported. Tested Taiwan permit MRZ can validate permit number, expiry date, and date of birth.
+
+Workflow optimization: lock identity data after OCR, MRZ validation, and reminder logging before generating downstream `01/02/03/04` files.
+
 Foreign split-bill projects need media checks per band/act: each band usually needs 1-2 compressed videos, while audio should cover every final song.
 
 Foreign performer document scans should not include extra page labels. The Word page should contain only the certificate/passport scan image itself; keep performer names in filenames and structured rosters.
@@ -78,7 +82,7 @@ Render DOCX/PDF outputs and inspect:
 - seal placement
 - document count
 - ID/passport completeness
-- foreign passport MRZ validation status
+- foreign passport and HK/Macau/Taiwan MRZ validation status
 - signature layout
 - translation consistency
 - foreign lyric heading format

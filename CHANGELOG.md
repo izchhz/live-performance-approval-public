@@ -1,5 +1,17 @@
 # Changelog
 
+## v2026.06.22.2
+
+### Added
+
+- Added MRZ validation support guidance for Hong Kong/Macau/Taiwan travel documents when MRZ is present.
+- Recorded a successful Taiwan resident mainland travel permit MRZ test: permit number, expiry date, and date of birth can be checked with Modulus 10 weighting `7, 3, 1`.
+- Added a workflow optimization note: treat MRZ validation as part of the identity-data lock step before generating downstream files.
+
+### Validation
+
+- The local `validate_mrz.py` helper now supports TD3 passport MRZ and three-line mainland travel permit MRZ used by tested Taiwan permit samples.
+
 ## v2026.06.22.1
 
 ### Added

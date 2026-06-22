@@ -19,7 +19,7 @@ English documentation: see [README.en.md](README.en.md).
 ☆☆☆☆☆切记不要简单套用！☆☆☆☆☆
 本工具为UNI开源项目，UNI不负责具体到个人的单独的skill训练。
 
-当前公开版版本：`v2026.06.22.1`。更新记录见 [CHANGELOG.md](CHANGELOG.md)。
+当前公开版版本：`v2026.06.22.2`。更新记录见 [CHANGELOG.md](CHANGELOG.md)。
 
 它支持两类报批分支：
 
@@ -77,6 +77,12 @@ python3 skill/live-performance-approval/scripts/init_project.py \
 不要把真实公司资料推送到公开 GitHub。真实公司信息、公章、身份证、护照、签名、完成案例，应放在单独的私有仓库或本地未跟踪文件中。
 
 详细规则见 [公开去敏策略](docs/zh-CN/公开去敏策略.md)。
+
+## v2026.06.22.2 策略更新
+
+- 港澳台证件如果存在 MRZ，也应优先用 MRZ 提取和核对信息。
+- 已测试台湾居民往来大陆/内地通行证三行 MRZ，可校验通行证号码、有效期和出生日期。
+- 身份信息锁定流程优化：先完成证件 OCR + MRZ 校验 + 异常提醒，再生成 01/02/03/04 等下游文件。
 
 ## v2026.06.22.1 策略更新
 

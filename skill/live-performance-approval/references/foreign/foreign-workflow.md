@@ -29,6 +29,13 @@ Use the document region/nationality:
 - Check passport number, date of birth, date of expiry, optional/personal number where present, and the composite check digit.
 - If MRZ is missing, cropped, blurred, or fails validation, do not silently trust OCR. Add the passport to the reminder list for manual review.
 
+## HK / Macau / Taiwan MRZ Validation
+
+- If Hong Kong, Macau, or Taiwan travel documents include MRZ, use MRZ to extract and cross-check identity fields before locking the performer roster.
+- Tested Taiwan resident mainland travel permit three-line MRZ supports validation of permit number, expiry date, and date of birth.
+- Use the same MRZ Modulus 10 weighting `7, 3, 1` for supported checked fields.
+- If MRZ is incomplete, blurred, cropped, unrecognized, or fails validation, add a reminder and manually review the original document image.
+
 ## Passport Scan Layout
 
 - Output foreign performer certificate scans as Word files unless the local private workflow says otherwise.

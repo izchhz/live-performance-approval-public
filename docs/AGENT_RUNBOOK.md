@@ -19,6 +19,8 @@ This runbook is written for AI agents using the skill.
 - If translation is needed, keep one translation map and reuse it everywhere.
 - For foreign split-bill projects, count video requirements per band/act; each band usually needs 1-2 videos.
 - For foreign passports, validate ICAO Doc 9303 TD3 MRZ fields before trusting OCR-filled passport number, date of birth, or expiry. Report missing, cropped, blurred, or failed MRZ for manual review.
+- For HK/Macau/Taiwan documents, run MRZ validation when MRZ is present and supported. Tested Taiwan permit MRZ can validate permit number, expiry date, and date of birth.
+- Lock identity data after OCR, MRZ validation, and reminder logging before generating downstream `01/02/03/04` files.
 - Foreign lyric headings keep only sequence number plus song title/translation. Do not append performer rosters or band member lists after the heading.
 - For foreign performer certificate scan Word files, place only the certificate/passport scan image on the page; do not add an extra name label, heading, or explanatory text.
 - For foreign artist consent signatures, use Latin signature fonts for Latin-script names and Chinese handwriting fonts for Chinese names unless real signatures are available and count-matched.
@@ -37,7 +39,7 @@ Stop and report when:
 - required local templates are missing
 - a document scan is incomplete or unreadable
 - ID checksum validation fails
-- passport/travel document validity cannot be read, or passport MRZ is missing, cropped, blurred, or fails validation
+- passport/travel document validity cannot be read, or document MRZ is missing, cropped, blurred, or fails validation
 - a foreign split-bill band/act does not meet the video material requirement
 - generated PDF/DOCX visually overflows or has wrong page count
 - public branch contains private data

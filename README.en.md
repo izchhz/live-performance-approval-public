@@ -2,7 +2,7 @@
 
 中文说明：see [README.md](README.md).
 
-Current public version: `v2026.06.22.1`. See [CHANGELOG.md](CHANGELOG.md).
+Current public version: `v2026.06.22.2`. See [CHANGELOG.md](CHANGELOG.md).
 
 This repository packages an AI-agent workflow for preparing Chinese commercial performance approval materials for live music projects.
 
@@ -50,6 +50,12 @@ python3 skill/live-performance-approval/scripts/init_project.py \
 Do not push private data to a public Git remote. Use a separate private repository or private branch with no shared public history for real company materials.
 
 See [docs/SANITIZATION.md](docs/SANITIZATION.md).
+
+## v2026.06.22.2 Policy Updates
+
+- When Hong Kong/Macau/Taiwan travel documents contain MRZ, use MRZ to extract and cross-check identity fields.
+- Tested Taiwan resident mainland travel permit three-line MRZ: permit number, expiry date, and date of birth can be validated.
+- Workflow optimization: lock identity data after OCR, MRZ validation, and reminder logging before generating downstream `01/02/03/04` files.
 
 ## v2026.06.22.1 Policy Updates
 

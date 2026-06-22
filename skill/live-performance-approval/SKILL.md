@@ -31,6 +31,7 @@ description: Generate and QA Chinese commercial performance approval packages fo
 - Do not include non-performing staff in performer lists.
 - Translate all foreign text in event names, song titles, lyrics, and media filenames, and keep translations consistent.
 - For foreign passports, validate ICAO Doc 9303 TD3 MRZ fields before trusting OCR-filled passport number, date of birth, or expiry. Report missing, cropped, blurred, or failed MRZ for manual review.
+- For HK/Macau/Taiwan travel documents, run MRZ validation when MRZ is present and supported; tested Taiwan permit MRZ can validate permit number, expiry date, and date of birth.
 - For foreign lyric headings, keep only sequence number plus song title/translation. Do not append performer rosters, band member lists, or artist lists after the heading.
 - For foreign split-bill projects, count video requirements per band/act; each band usually needs 1-2 videos.
 - For foreign performer certificate scan Word files, place only the certificate/passport scan image on the page. Do not add extra text name labels, headings, or explanatory text inside the page.

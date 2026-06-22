@@ -25,6 +25,7 @@ Run this checklist before final delivery.
 - Passport double-page spread: fit near `125mm x 176mm` when possible.
 - Completeness and readability override exact physical sizing.
 - Foreign passport MRZ validation was run when MRZ lines are available; missing, cropped, blurred, or failed MRZ is listed for manual review.
+- HK/Macau/Taiwan travel document MRZ validation was run when MRZ is present and supported; incomplete, unrecognized, or failed MRZ is listed for manual review.
 - Foreign performer certificate scan Word pages contain only the certificate/passport scan image itself; no extra text name label, heading, or explanatory text is added inside the page.
 - Mainland ID numbers must pass checksum validation; warn when expiry is within 6 months.
 
