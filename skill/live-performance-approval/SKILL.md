@@ -30,6 +30,8 @@ description: Generate and QA Chinese commercial performance approval packages fo
 - Treat `00_项目主档/项目主档.json` or `.yaml` as the source of truth after project setup.
 - Do not include non-performing staff in performer lists.
 - Translate all foreign text in event names, song titles, lyrics, and media filenames, and keep translations consistent.
+- For foreign passports, validate ICAO Doc 9303 TD3 MRZ fields before trusting OCR-filled passport number, date of birth, or expiry. Report missing, cropped, blurred, or failed MRZ for manual review.
+- For foreign lyric headings, keep only sequence number plus song title/translation. Do not append performer rosters, band member lists, or artist lists after the heading.
 - For foreign split-bill projects, count video requirements per band/act; each band usually needs 1-2 videos.
 - For foreign performer certificate scan Word files, place only the certificate/passport scan image on the page. Do not add extra text name labels, headings, or explanatory text inside the page.
 - For foreign artist consent signatures, use Latin signature fonts for Latin-script names and Chinese handwriting fonts for Chinese names unless real signature images are available and count-matched.

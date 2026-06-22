@@ -62,9 +62,13 @@ video/audio files
 
 Local regulations vary. Keep policy-specific requirements in configuration and references.
 
+Foreign passport fields should be validated against ICAO Doc 9303 TD3 MRZ check digits before trusting OCR. Missing, cropped, blurred, or failed MRZ should be reported for manual review.
+
 Foreign split-bill projects need media checks per band/act: each band usually needs 1-2 compressed videos, while audio should cover every final song.
 
 Foreign performer document scans should not include extra page labels. The Word page should contain only the certificate/passport scan image itself; keep performer names in filenames and structured rosters.
+
+Foreign lyric headings should keep only sequence number plus song title/translation. Do not append performer rosters or band member lists after the heading.
 
 ## 5. QA
 
@@ -74,8 +78,10 @@ Render DOCX/PDF outputs and inspect:
 - seal placement
 - document count
 - ID/passport completeness
+- foreign passport MRZ validation status
 - signature layout
 - translation consistency
+- foreign lyric heading format
 - media filenames and compression parameters
 - for foreign split-bill projects, per-band video coverage
 - for foreign consent letters, Latin names use Latin signature fonts and Chinese names use Chinese handwriting fonts unless real signatures are available

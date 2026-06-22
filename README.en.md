@@ -2,7 +2,7 @@
 
 中文说明：see [README.md](README.md).
 
-Current public version: `v2026.06.17.1`. See [CHANGELOG.md](CHANGELOG.md).
+Current public version: `v2026.06.22.1`. See [CHANGELOG.md](CHANGELOG.md).
 
 This repository packages an AI-agent workflow for preparing Chinese commercial performance approval materials for live music projects.
 
@@ -50,6 +50,12 @@ python3 skill/live-performance-approval/scripts/init_project.py \
 Do not push private data to a public Git remote. Use a separate private repository or private branch with no shared public history for real company materials.
 
 See [docs/SANITIZATION.md](docs/SANITIZATION.md).
+
+## v2026.06.22.1 Policy Updates
+
+- Added the missing public update note for foreign passport MRZ validation: passport information should be checked against ICAO Doc 9303 TD3 MRZ fields with Modulus 10 weighting `7, 3, 1` before filling passport number, date of birth, or expiry.
+- Foreign lyric headings should keep only sequence number plus song title and translation. Do not append performer rosters, band member lists, or artist lists after song titles.
+- This lyric-heading change applies only to foreign/HK/Macau/Taiwan lyric materials. Domestic lyric materials are unchanged.
 
 ## v2026.06.17.1 Policy Updates
 

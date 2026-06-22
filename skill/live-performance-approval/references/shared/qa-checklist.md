@@ -7,6 +7,7 @@ Run this checklist before final delivery.
 - Event name, time, applicant, venue, and performer names match across all final files.
 - Band names are not used where real performer names are required.
 - Foreign text translations match across event names, song titles, lyrics, and media filenames.
+- Foreign lyric headings contain only sequence number plus song title/translation, with no appended performer roster or band member list.
 - Removed songs are removed everywhere and numbering is continuous.
 
 ## Document Layout
@@ -23,6 +24,7 @@ Run this checklist before final delivery.
 - Passport single page: fit near `125mm x 88mm` when possible.
 - Passport double-page spread: fit near `125mm x 176mm` when possible.
 - Completeness and readability override exact physical sizing.
+- Foreign passport MRZ validation was run when MRZ lines are available; missing, cropped, blurred, or failed MRZ is listed for manual review.
 - Foreign performer certificate scan Word pages contain only the certificate/passport scan image itself; no extra text name label, heading, or explanatory text is added inside the page.
 - Mainland ID numbers must pass checksum validation; warn when expiry is within 6 months.
 

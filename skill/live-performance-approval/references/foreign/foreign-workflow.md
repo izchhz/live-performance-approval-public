@@ -22,6 +22,13 @@ Use the document region/nationality:
 - Hong Kong: `中国香港`, document type `港澳居民来往内地通行证`
 - Macau: `中国澳门`, document type `港澳居民来往内地通行证`
 
+## Passport MRZ Validation
+
+- For foreign passports, read the two MRZ lines from the passport data page before trusting OCR-filled passport fields.
+- Validate ICAO Doc 9303 TD3 check digits with Modulus 10 weighting `7, 3, 1`.
+- Check passport number, date of birth, date of expiry, optional/personal number where present, and the composite check digit.
+- If MRZ is missing, cropped, blurred, or fails validation, do not silently trust OCR. Add the passport to the reminder list for manual review.
+
 ## Passport Scan Layout
 
 - Output foreign performer certificate scans as Word files unless the local private workflow says otherwise.
@@ -42,6 +49,8 @@ Use the document region/nationality:
 
 - Create one total program/lyrics Word file.
 - Create one Word file per song.
+- Foreign lyric headings should contain only sequence number plus song title and translation, for example `01 Song Title（中文译名）`.
+- Do not append performer rosters, band member lists, or artist lists after lyric headings.
 - If two-column original/translation alignment is unreliable, use single-column layout: original line, then Chinese translation in full-width parentheses.
 
 ## Media

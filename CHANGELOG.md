@@ -1,5 +1,16 @@
 # Changelog
 
+## v2026.06.22.1
+
+### Added
+
+- Added the missing public changelog note for foreign passport MRZ validation: passport data should be cross-checked with ICAO Doc 9303 TD3 MRZ fields and Modulus 10 weighting `7, 3, 1` before trusting OCR for passport number, date of birth, or expiry.
+- Added a foreign lyrics-title policy: lyric headings keep only sequence number plus song title and translation, and must not append performer rosters, band member lists, or artist lists.
+
+### Scope
+
+- The new lyrics-title policy applies only to foreign/HK/Macau/Taiwan approval lyric materials. Domestic lyric materials are unchanged.
+
 ## v2026.06.17.1
 
 ### Added
