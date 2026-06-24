@@ -29,6 +29,10 @@ description: Generate and QA Chinese commercial performance approval packages fo
 
 - Treat `00_项目主档/项目主档.json` or `.yaml` as the source of truth after project setup.
 - Do not include non-performing staff in performer lists.
+- For domestic `00` application forms and official tables, preserve the trained Word template and page geometry. Do not redraw, simplify, or replace them with hand-built layouts.
+- For domestic total-roster files (`00/01/02/03/04/08`), use every actual on-stage performer. For song-specific files (`05/06/07`), use each song's actual performers and log partial-participation songs in reminders.
+- Domestic authorization documents should use private-config placeholders for event name, event date, full performer roster, authorized signer, submitter, and seal. Do not hardcode real names in the public package.
+- Before rendering handwriting or signature text, check that the configured font covers every required character. If the output shows missing-glyph boxes, clipping, or overflow, stop and fix the font/rendering path before delivery.
 - Translate all foreign text in event names, song titles, lyrics, and media filenames, and keep translations consistent.
 - For foreign passports, validate ICAO Doc 9303 TD3 MRZ fields before trusting OCR-filled passport number, date of birth, or expiry. Report missing, cropped, blurred, or failed MRZ for manual review.
 - For HK/Macau/Taiwan travel documents, run MRZ validation when MRZ is present and supported; tested Taiwan permit MRZ can validate permit number, expiry date, and date of birth.

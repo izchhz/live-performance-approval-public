@@ -6,6 +6,8 @@ Run this checklist before final delivery.
 
 - Event name, time, applicant, venue, and performer names match across all final files.
 - Band names are not used where real performer names are required.
+- Domestic total-roster documents include every actual on-stage performer, including performers who appear only in part of the set.
+- Domestic program, lyrics, and media filenames use each song's actual performers; partial-participation songs are listed in the reminder file.
 - Foreign text translations match across event names, song titles, lyrics, and media filenames.
 - Foreign lyric headings contain only sequence number plus song title/translation, with no appended performer roster or band member list.
 - Removed songs are removed everywhere and numbering is continuous.
@@ -13,6 +15,7 @@ Run this checklist before final delivery.
 ## Document Layout
 
 - Use the provided Word templates and preserve page geometry.
+- Domestic `00` application forms and official tables are generated from trained Word templates, not redrawn layouts.
 - Remove yellow highlights before export.
 - Keep intended underlines.
 - Use Songti/Song-style fonts for Chinese government documents where available.
@@ -35,6 +38,8 @@ Run this checklist before final delivery.
 - Seal must stay fully inside the A4 page.
 - Seal should lightly overlap relevant content but not obscure core fields.
 - Signatures should not look uniform, stretched, clipped, or printed.
+- Submitter labels, copy-verification notes, and authorization signatures use configured handwriting fonts and pass glyph coverage checks.
+- Missing-glyph boxes, tofu characters, clipped signatures, or signature overflow are delivery blockers.
 - In foreign artist consent letters, Latin-script names use Latin signature fonts and Chinese names use Chinese handwriting fonts unless real signatures are available and count-matched.
 
 ## Media

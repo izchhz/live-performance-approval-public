@@ -10,8 +10,8 @@ from pathlib import Path
 
 def clean_xml(text: str) -> str:
     replacements = {
-        "dc:creator": "LiveShopUni",
-        "cp:lastModifiedBy": "LiveShopUni",
+        "dc:creator": "approval-automation",
+        "cp:lastModifiedBy": "approval-automation",
     }
     for tag, value in replacements.items():
         text = re.sub(

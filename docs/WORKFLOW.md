@@ -49,6 +49,15 @@ Domestic materials usually include:
 10 fire safety/opening permit
 ```
 
+Domestic `00` application forms and official tables must preserve the trained Word template fields, table sizing, and page geometry. Do not redraw or simplify official documents as custom layouts.
+
+Domestic performer rosters have two layers:
+
+- `00/01/02/03/04/08` use all actual on-stage performers.
+- `05/06/07` use each song's actual participating performers. If a song uses only part of the roster, record that exception in the reminder file.
+
+Domestic authorization fields, submitter labels, authorized signer names, verification text, and seal placement should come from private local configuration. The public package keeps placeholders and execution rules only.
+
 Foreign/HK/Macau/Taiwan materials usually include:
 
 ```text
@@ -84,6 +93,8 @@ Render DOCX/PDF outputs and inspect:
 - ID/passport completeness
 - foreign passport and HK/Macau/Taiwan MRZ validation status
 - signature layout
+- configured handwriting/signature fonts render without missing-glyph boxes, clipping, or overflow
+- domestic total-roster and per-song performer lists are correctly separated
 - translation consistency
 - foreign lyric heading format
 - media filenames and compression parameters

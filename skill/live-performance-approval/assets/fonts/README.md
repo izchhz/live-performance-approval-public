@@ -15,13 +15,15 @@ The workflow expects these font categories:
 
 2. Chinese handwriting font
    - Purpose: submitter labels such as `提供人：...` and copy-verification notes.
-   - Recommended behavior: use a realistic licensed handwriting font installed locally.
+   - Recommended behavior: use one fixed, realistic licensed handwriting font installed locally for recurring submitter and copy-verification text.
    - Quality gate: reject fonts that look printed, render missing glyph boxes, or do not support the required Chinese characters.
+   - Rendering gate: run a glyph coverage check before export; if the PDF shows square boxes, switch to a verified text-to-transparent-image overlay rather than silently changing to an unapproved font.
 
 3. Chinese artist-signature fonts
    - Purpose: generated Chinese artist signatures when real signature images are unavailable.
    - Recommended behavior: install several different licensed handwriting fonts and rotate them per artist.
    - Quality gate: signature size, baseline, and style should vary; all signatures must stay inside their intended signing area.
+   - Rare characters: keep a secondary licensed handwriting/calligraphy fallback list for uncommon Chinese characters, but use it only after confirming glyph coverage and visual quality.
 
 4. Latin signature fonts
    - Purpose: foreign artist signatures when real signature images are unavailable.

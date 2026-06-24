@@ -2,7 +2,7 @@
 
 中文说明：see [README.md](README.md).
 
-Current public version: `v2026.06.22.2`. See [CHANGELOG.md](CHANGELOG.md).
+Current public version: `v2026.06.24.1`. See [CHANGELOG.md](CHANGELOG.md).
 
 This repository packages an AI-agent workflow for preparing Chinese commercial performance approval materials for live music projects.
 
@@ -50,6 +50,13 @@ python3 skill/live-performance-approval/scripts/init_project.py \
 Do not push private data to a public Git remote. Use a separate private repository or private branch with no shared public history for real company materials.
 
 See [docs/SANITIZATION.md](docs/SANITIZATION.md).
+
+## v2026.06.24.1 Policy Updates
+
+- Added domestic high-risk rules: the `00` application form must preserve the trained Word template and page geometry; do not redraw or simplify it.
+- Clarified total-roster versus per-song performer logic: `00/01/02/03/04/08` use all actual on-stage performers, while `05/06/07` use each song's actual performers and log partial-participation songs in reminders.
+- Strengthened font and signature QA: submitter labels, copy-verification notes, and authorization signatures must use configured handwriting fonts with glyph coverage checked before delivery.
+- Expanded public sanitization checks for authorized signer names, fixed identity attachments, business licenses, fire permits, and similar private dependencies.
 
 ## v2026.06.22.2 Policy Updates
 

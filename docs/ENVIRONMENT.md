@@ -19,7 +19,7 @@ Install LibreOffice from the official installer or your package manager.
 ## Python Packages
 
 ```bash
-python3 -m pip install python-docx Pillow pypdf reportlab
+python3 -m pip install python-docx Pillow pypdf reportlab PyYAML fonttools
 ```
 
 Optional packages, depending on your OCR and translation approach:
@@ -38,6 +38,8 @@ Recommended setup:
 - Chinese handwritten submitter labels: install at least one licensed Chinese handwriting font locally. If a commercial font is used, keep it outside the public repository.
 - Chinese artist signatures: prefer real signature images. If unavailable, install several licensed Chinese handwriting fonts and rotate them per artist; reject fonts that render as boxes, look printed, or look too uniform.
 - English/foreign artist signatures: install one or more licensed signature-style Latin fonts locally, or use real signature images when available.
+- Before exporting final PDFs, use `fontTools` or equivalent checks to confirm that configured handwriting/signature fonts cover every required character.
+- If direct PDF embedding still renders square boxes, render verified handwriting text to a transparent image overlay in the private runtime instead of silently switching to an unapproved font.
 
 Public-repo font policy:
 

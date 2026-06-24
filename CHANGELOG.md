@@ -1,5 +1,19 @@
 # Changelog
 
+## v2026.06.24.1
+
+### Added
+
+- Added domestic template-preservation rules for the `00` application form: agents must use trained Word templates and preserve page geometry instead of redrawing official tables.
+- Added total-roster versus per-song performer rules for domestic projects: total-roster documents use all actual on-stage performers, while program, lyric, and media filenames use the actual performers for each song.
+- Added stronger handwriting-font QA guidance: configured submitter, verification, and authorization-signature fonts must pass glyph coverage checks and must not render missing-glyph boxes.
+- Added public sanitization checks for authorized signer names, fixed identity attachments, business-license documents, fire-permit documents, private seals, and completed private samples.
+
+### Sanitization
+
+- Removed project README wording that contained organization-specific branding and personal-style contact references.
+- Reconfirmed that the public package remains documentation, scripts, placeholders, and example config only.
+
 ## v2026.06.22.2
 
 ### Added
