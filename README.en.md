@@ -2,7 +2,7 @@
 
 中文说明：see [README.md](README.md).
 
-Current public version: `v2026.06.24.1`. See [CHANGELOG.md](CHANGELOG.md).
+Current public version: `v2026.06.26.1`. See [CHANGELOG.md](CHANGELOG.md).
 
 This repository packages an AI-agent workflow for preparing Chinese commercial performance approval materials for live music projects.
 
@@ -36,6 +36,12 @@ Example:
 
 ```bash
 python3 skill/live-performance-approval/scripts/check_environment.py
+python3 skill/live-performance-approval/scripts/prepare_agent_context.py \
+  --project-dir ./example-project \
+  --source-dir ./example-project/01_原始资料 \
+  --extract-text \
+  --scan-cn-id \
+  --scan-mrz
 python3 skill/live-performance-approval/scripts/init_project.py \
   --config skill/live-performance-approval/assets/config/company-profile.example.json \
   --project-dir ./example-project \
@@ -50,6 +56,13 @@ python3 skill/live-performance-approval/scripts/init_project.py \
 Do not push private data to a public Git remote. Use a separate private repository or private branch with no shared public history for real company materials.
 
 See [docs/SANITIZATION.md](docs/SANITIZATION.md).
+
+## v2026.06.26.1 Policy Updates
+
+- Added local Chinese ID-card OCR with `scan_cn_id_ocr.py`, powered by PaddleOCR. It extracts identity text, ID-number validation, validity-period fields, renewal warnings, and manual-review flags into structured reports.
+- Added local passport and HK/Macau/Taiwan travel-document MRZ extraction with `scan_passport_mrz.py`, including ICAO Doc 9303 check-digit validation.
+- Added `prepare_agent_context.py` with `--scan-cn-id` and `--scan-mrz` so agents can read compact local extraction reports before opening sensitive raw identity images.
+- The public package keeps only generic scripts and placeholder project metadata; it excludes real company profiles, seals, licenses, permits, IDs, passports, and completed samples.
 
 ## v2026.06.24.1 Policy Updates
 

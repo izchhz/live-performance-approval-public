@@ -28,6 +28,53 @@ Optional packages, depending on your OCR and translation approach:
 python3 -m pip install pymupdf pytesseract opencc
 ```
 
+## Local Chinese ID OCR
+
+For local mainland Chinese ID-card OCR, install PaddlePaddle and PaddleOCR. On Apple Silicon Mac, use the official CPU package index:
+
+```bash
+python3 -m pip install paddlepaddle==3.3.0 -i https://www.paddlepaddle.org.cn/packages/stable/cpu/
+python3 -m pip install paddleocr
+```
+
+Run:
+
+```bash
+python3 skill/live-performance-approval/scripts/scan_cn_id_ocr.py \
+  --project-dir <project-dir> \
+  --source-dir <source-dir>
+```
+
+The first run downloads OCR models to `~/.paddlex/official_models/`; later runs use the local cache.
+
+## Local Passport / Travel Document MRZ
+
+For local passport and HK/Macau/Taiwan travel-document MRZ extraction:
+
+```bash
+brew install tesseract
+python3 -m pip install --user PassportEye
+```
+
+Run:
+
+```bash
+python3 skill/live-performance-approval/scripts/scan_passport_mrz.py \
+  --project-dir <project-dir> \
+  --source-dir <source-dir>
+```
+
+Both OCR helpers can also be run through the compact context-pack helper:
+
+```bash
+python3 skill/live-performance-approval/scripts/prepare_agent_context.py \
+  --project-dir <project-dir> \
+  --source-dir <source-dir> \
+  --extract-text \
+  --scan-cn-id \
+  --scan-mrz
+```
+
 ## Fonts
 
 This public package does not bundle handwriting fonts because many commercial Chinese and signature fonts cannot be redistributed on GitHub.

@@ -2,7 +2,7 @@
 
 这是中文说明副本。GitHub 首页默认显示的中文介绍见 [README.md](README.md)。
 
-当前公开版版本：`v2026.06.24.1`。更新记录见 [CHANGELOG.md](CHANGELOG.md)。
+当前公开版版本：`v2026.06.26.1`。更新记录见 [CHANGELOG.md](CHANGELOG.md)。
 
 这个仓库提供一套给 AI agent 使用的演出报批材料生成工作流，用于整理和生成现场音乐演出相关的营业性演出报批资料。
 
@@ -37,6 +37,12 @@ skill/live-performance-approval/assets
 
 ```bash
 python3 skill/live-performance-approval/scripts/check_environment.py
+python3 skill/live-performance-approval/scripts/prepare_agent_context.py \
+  --project-dir ./example-project \
+  --source-dir ./example-project/01_原始资料 \
+  --extract-text \
+  --scan-cn-id \
+  --scan-mrz
 python3 skill/live-performance-approval/scripts/init_project.py \
   --config skill/live-performance-approval/assets/config/company-profile.example.json \
   --project-dir ./example-project \
@@ -62,6 +68,13 @@ python3 skill/live-performance-approval/scripts/init_project.py \
 不要把真实公司资料推送到公开 GitHub。真实公司信息、公章、身份证、护照、签名、完成案例，应放在单独的私有仓库或本地未跟踪文件中。
 
 详细规则见 [公开去敏策略](docs/zh-CN/公开去敏策略.md)。
+
+## v2026.06.26.1 策略更新
+
+- 新增本地中国居民身份证 OCR 脚本 `scan_cn_id_ocr.py`：使用 PaddleOCR 提取姓名、性别、民族、出生日期、身份证号、签发机关和有效期限，并输出结构化 JSON/Markdown 报告。
+- 新增本地护照/港澳台证件 MRZ 脚本 `scan_passport_mrz.py`：按 ICAO Doc 9303 校验护照 MRZ；支持已训练的港澳台通行证 MRZ 字段提取和校验策略。
+- 新增 `prepare_agent_context.py` 上下文包：可通过 `--scan-cn-id` 和 `--scan-mrz` 在 agent 阅读原始证件图片前先完成本地结构化提取，减少敏感图像进入上下文。
+- 公开版保留通用脚本和占位项目主档，不包含真实公司主体、公章、许可证号、地址、营业执照、消防许可、身份证、护照或完成案例。
 
 ## v2026.06.24.1 策略更新
 

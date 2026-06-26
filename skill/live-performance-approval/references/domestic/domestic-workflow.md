@@ -35,6 +35,13 @@ Generate the local required set:
 ## Key Rules
 
 - Extract real performer names from ID scans or the confirmed roster.
+- Before asking an agent to visually read ID-card images, run local OCR:
+
+```bash
+python3 scripts/scan_cn_id_ocr.py --project-dir <project-dir> --source-dir <source-dir>
+```
+
+- The OCR report is written to `02_生成中间文件/cn_id_ocr/`. Use it to review recognized names, ID numbers, checksum status, validity period, renewal warnings, and manual-review flags.
 - Exclude crew who do not perform on stage.
 - Preserve the trained Word templates for official files, especially `00` application forms. Do not redraw table layouts or change official wording unless the user asks.
 - Use all actual on-stage performers in total-roster documents (`00/01/02/03/04/08`).

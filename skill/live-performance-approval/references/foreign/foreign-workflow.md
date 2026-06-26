@@ -24,6 +24,13 @@ Use the document region/nationality:
 
 ## Passport MRZ Validation
 
+- Before asking an agent to visually read passport or travel-document images, run local MRZ extraction:
+
+```bash
+python3 scripts/scan_passport_mrz.py --project-dir <project-dir> --source-dir <source-dir>
+```
+
+- The MRZ report is written to `02_生成中间文件/passport_mrz/`. Use it to review document numbers, dates of birth, expiry dates, approval-facing country/region fields, check-digit status, and manual-review flags.
 - For foreign passports, read the two MRZ lines from the passport data page before trusting OCR-filled passport fields.
 - Validate ICAO Doc 9303 TD3 check digits with Modulus 10 weighting `7, 3, 1`.
 - Check passport number, date of birth, date of expiry, optional/personal number where present, and the composite check digit.

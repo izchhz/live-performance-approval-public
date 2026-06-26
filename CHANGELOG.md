@@ -1,5 +1,24 @@
 # Changelog
 
+## v2026.06.26.1
+
+### Added
+
+- Added local Chinese ID-card OCR support with PaddleOCR via `scan_cn_id_ocr.py`. The script extracts recognized text, ID number candidates, ID checksum validation, validity-period fields, renewal warnings, and manual-review flags into structured JSON/Markdown reports.
+- Added local passport and Hong Kong/Macau/Taiwan travel-document MRZ extraction via `scan_passport_mrz.py`, including ICAO Doc 9303 `7, 3, 1` check-digit validation and approval-facing document-region/type fields.
+- Added `prepare_agent_context.py` for compact project context packs. It can run `--scan-cn-id` and `--scan-mrz` before the agent opens raw identity scans, reducing repeated visual inspection of sensitive documents.
+- Added a public placeholder `project_manifest.py` so context-pack scripts can run without private company data.
+
+### Changed
+
+- Updated public environment docs for PaddleOCR/PaddlePaddle and PassportEye/Tesseract local setup.
+- Updated public skill instructions to prefer local deterministic OCR/MRZ scripts before model-based visual reading.
+
+### Sanitization
+
+- Kept real company profiles, seals, business licenses, fire permits, identity documents, signatures, and completed examples out of the public repository.
+- The public project manifest contains only generic placeholder document labels and no organization-specific subjects, addresses, license numbers, or seal names.
+
 ## v2026.06.24.1
 
 ### Added
