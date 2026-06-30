@@ -16,10 +16,13 @@ Run this checklist before final delivery.
 
 - Use the provided Word templates and preserve page geometry.
 - Domestic `00` application forms and official tables are generated from trained Word templates, not redrawn layouts.
+- Domestic `00` remains one page and the exported PDF uses an actual Songti-compatible font rather than a sans-serif substitute.
+- Domestic `03/04` PDFs are exported directly from their final Word files and match Word page count, line spacing, signatures, seals, and pagination.
 - Remove yellow highlights before export.
 - Keep intended underlines.
 - Use Songti/Song-style fonts for Chinese government documents where available.
 - Check for text overflow, signature overflow, blank extra pages, and inconsistent table sizing.
+- Check that relative line spacing was not enlarged by LibreOffice font substitution.
 
 ## ID / Passport Materials
 
@@ -31,12 +34,15 @@ Run this checklist before final delivery.
 - HK/Macau/Taiwan travel document MRZ validation was run when MRZ is present and supported; incomplete, unrecognized, or failed MRZ is listed for manual review.
 - Foreign performer certificate scan Word pages contain only the certificate/passport scan image itself; no extra text name label, heading, or explanatory text is added inside the page.
 - Mainland ID numbers must pass checksum validation; warn when expiry is within 6 months.
+- Roster certificate validity includes both start and end dates.
 
 ## Seals and Signatures
 
 - Seal diameter is normally `40mm`.
 - Seal must stay fully inside the A4 page.
 - Seal should lightly overlap relevant content but not obscure core fields.
+- Every page of a multi-page domestic roster upload PDF is sealed.
+- Domestic venue-consent seal overlaps both the venue company/signatory name and date and remains fully inside A4.
 - Signatures should not look uniform, stretched, clipped, or printed.
 - Submitter labels, copy-verification notes, and authorization signatures use configured handwriting fonts and pass glyph coverage checks.
 - Missing-glyph boxes, tofu characters, clipped signatures, or signature overflow are delivery blockers.
@@ -48,3 +54,14 @@ Run this checklist before final delivery.
 - Foreign video: compress 1-2 videos for a single act unless local policy requires more.
 - Foreign split-bill video: every band/act should have 1-2 videos represented.
 - Foreign audio: one MP3 per song, mono, low bitrate, names matching the final program list.
+
+## Lyrics
+
+- Every retained foreign-language lyric line has a separate full-width-parenthesized Chinese translation.
+- Structural labels such as Verse, Chorus, Bridge, Intro, and Outro are removed from foreign lyrics.
+- Song headings are not stranded at the bottom of a page.
+
+## Foreign Files
+
+- No submitter/provider handwriting is added to foreign approval files.
+- Foreign fire-safety/opening permit is unchanged: no seal, copy-verification text, or provider label.

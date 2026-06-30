@@ -1,5 +1,21 @@
 # Changelog
 
+## v2026.06.30.1
+
+### Changed
+
+- Hardened domestic official-template rules: `00` stays one page in an embedded Songti-compatible font, while `03/04` PDFs must be exported directly from their final Word files.
+- Documented the LibreOffice font-substitution failure mode that can enlarge relative line spacing and force content onto an extra page; the supported fix is an installed Songti-compatible font plus visually equivalent exact line spacing.
+- Added per-page sealing for multi-page domestic roster-upload PDFs and required venue-consent seals to overlap both the venue company/signatory name and date.
+- Standardized domestic program-table width priorities and strengthened foreign-language lyric translation, parentheses, and page-break QA.
+- Required performer certificate validity to include both start and end dates.
+- Clarified foreign-package rules: no provider handwriting, unchanged fire-safety/opening permit, and removal of non-lyric structural labels.
+- Documented the verified local document stack: python-docx 1.2.0, python-pptx 1.0.2, openpyxl 3.1.5, XlsxWriter 3.2.9, pandas 3.0.3, and ReportLab 5.0.0.
+
+### Sanitization
+
+- Published only generic workflow and QA rules. No real company configuration, seals, identity documents, fixed authorization attachments, official certificates, signatures, private fonts, or completed examples were added.
+
 ## v2026.06.26.1
 
 ### Added

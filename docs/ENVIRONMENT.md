@@ -18,8 +18,18 @@ Install LibreOffice from the official installer or your package manager.
 
 ## Python Packages
 
+Verified local document stack (2026-06-30):
+
+- Word: `python-docx 1.2.0`
+- PowerPoint: `python-pptx 1.0.2`
+- Excel: `openpyxl 3.1.5`, `XlsxWriter 3.2.9`
+- Structured data: `pandas 3.0.3`
+- PDF generation: `ReportLab 5.0.0`
+
+Agents should prefer these local libraries for deterministic document generation and data transformation before using model-driven reconstruction. Official Word templates must still be preserved; library availability is not permission to redraw them.
+
 ```bash
-python3 -m pip install python-docx Pillow pypdf reportlab PyYAML fonttools
+python3 -m pip install "python-docx>=1.2.0" "python-pptx>=1.0.2" "openpyxl>=3.1.5" "XlsxWriter>=3.2.9" "pandas>=3.0.3" "reportlab>=5.0.0" Pillow pypdf PyYAML fonttools
 ```
 
 Optional packages, depending on your OCR and translation approach:

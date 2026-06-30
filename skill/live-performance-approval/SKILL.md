@@ -33,7 +33,14 @@ description: Generate and QA Chinese commercial performance approval packages fo
 - For domestic mainland Chinese ID cards, prefer local PaddleOCR extraction with `scripts/scan_cn_id_ocr.py` or `prepare_agent_context.py --scan-cn-id`, then use checksum validation and expiry warnings before asking the model to inspect the original scan.
 - Do not include non-performing staff in performer lists.
 - For domestic `00` application forms and official tables, preserve the trained Word template and page geometry. Do not redraw, simplify, or replace them with hand-built layouts.
+- Domestic `00` must remain one page and use a real, installed Songti-compatible font for all visible text. Verify the exported PDF does not substitute a sans-serif font.
+- Domestic `03/04` must be generated from fixed local Word templates. Only replace approved data fields; the final PDF must be exported directly from the final Word file so page count, line spacing, signatures, seals, and pagination stay identical.
+- If LibreOffice font substitution enlarges relative line spacing, use an installed embeddable Songti-compatible font and convert the template's relative line spacing to the visually equivalent exact spacing. Do not shrink, delete, or rearrange official content to force pagination.
 - For domestic total-roster files (`00/01/02/03/04/08`), use every actual on-stage performer. For song-specific files (`05/06/07`), use each song's actual performers and log partial-participation songs in reminders.
+- Domestic performer-roster upload PDFs must carry the configured applicant seal. If the upload roster spans multiple pages, every page must be sealed without obscuring identity fields.
+- Domestic venue-consent seals must overlap both the venue company/signatory name and the date, remain legible, and stay fully inside A4.
+- Domestic program tables should reserve only the minimum practical width for the sequence column and prioritize the title/performer column; the trained default is `12mm / 143mm / 25mm`.
+- Domestic foreign-language lyric lines must be followed by a separate full-width-parenthesized Chinese translation. Do not strand a song heading at the bottom of a page.
 - Domestic authorization documents should use private-config placeholders for event name, event date, full performer roster, authorized signer, submitter, and seal. Do not hardcode real names in the public package.
 - Before rendering handwriting or signature text, check that the configured font covers every required character. If the output shows missing-glyph boxes, clipping, or overflow, stop and fix the font/rendering path before delivery.
 - Translate all foreign text in event names, song titles, lyrics, and media filenames, and keep translations consistent.
@@ -43,6 +50,9 @@ description: Generate and QA Chinese commercial performance approval packages fo
 - For foreign split-bill projects, count video requirements per band/act; each band usually needs 1-2 videos.
 - For foreign performer certificate scan Word files, place only the certificate/passport scan image on the page. Do not add extra text name labels, headings, or explanatory text inside the page.
 - For foreign artist consent signatures, use Latin signature fonts for Latin-script names and Chinese handwriting fonts for Chinese names unless real signature images are available and count-matched.
+- Foreign approval files must not add submitter/provider handwriting. Foreign fire-safety/opening permits are exported unchanged, without seals, copy-verification text, or provider labels.
+- Foreign lyrics must remove structural labels such as `Verse`, `Pre-Chorus`, `Chorus`, `Bridge`, `Intro`, and `Outro`; every retained foreign lyric line still requires a separate full-width-parenthesized Chinese translation.
+- Performer certificate validity must include both start and end dates in roster files. Use `YYYY-MM-DD-YYYY-MM-DD`, or `YYYY-MM-DD-long-term` only when the source explicitly states long-term validity.
 - Do visual QA after DOCX/PDF generation. Check page count, seal placement, signatures, highlights, ID/passport completeness, and text overflow.
 - This public package contains placeholders only. Each organization must add its own private templates, seals, company profile, and authorized signer documents locally.
 
