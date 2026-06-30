@@ -2,7 +2,7 @@
 
 中文说明：see [README.md](README.md).
 
-Current public version: `v2026.06.26.1`. See [CHANGELOG.md](CHANGELOG.md).
+Current public version: `v2026.06.30.1`. See [CHANGELOG.md](CHANGELOG.md).
 
 This repository packages an AI-agent workflow for preparing Chinese commercial performance approval materials for live music projects.
 
@@ -56,6 +56,13 @@ python3 skill/live-performance-approval/scripts/init_project.py \
 Do not push private data to a public Git remote. Use a separate private repository or private branch with no shared public history for real company materials.
 
 See [docs/SANITIZATION.md](docs/SANITIZATION.md).
+
+## v2026.06.30.1 Policy Updates
+
+- Hardened official-template fidelity, Songti embedding, Word-to-PDF pagination, multi-page roster sealing, venue-consent seal placement, lyric translation, and certificate-validity rules.
+- Documented the LibreOffice font-substitution fix and the verified local Word, PowerPoint, Excel, data-processing, and PDF Python stack.
+- Clarified foreign-package provider-label, fire-permit, and non-lyric structural-label policies.
+- The public package remains sanitized and contains no real company assets, seals, identity documents, private fonts, fixed certificates, or completed cases.
 
 ## v2026.06.26.1 Policy Updates
 
