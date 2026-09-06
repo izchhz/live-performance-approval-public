@@ -11,7 +11,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-from project_manifest import DOCUMENTS, load_manifest, manifest_path, save_manifest
+from project_manifest import DOCUMENTS, load_manifest, manifest_path, save_manifest, outputs_for, source_fingerprint
+from applicant_policy import load_company_config, subject_issues
 
 
 MEDIA_SUFFIXES = {".mp4", ".mov", ".avi", ".mkv", ".m4v", ".webm", ".mp3", ".wav", ".m4a", ".aac", ".flac"}
@@ -77,12 +78,14 @@ def classify(path: Path) -> str:
 
 def iter_candidate_files(roots: list[Path]) -> list[Path]:
     files: list[Path] = []
+    seen = set()
     for root in roots:
         if not root.exists():
             continue
         for path in sorted(root.rglob("*")):
-            if path.is_file() and not should_skip(path):
+            if path.is_file() and not should_skip(path) and path.resolve() not in seen:
                 files.append(path)
+                seen.add(path.resolve())
     return files
 
 
@@ -90,6 +93,7 @@ def file_record(path: Path, roots: list[Path]) -> dict[str, Any]:
     stat = path.stat()
     return {
         "path": rel(path, roots),
+        "absolute_path": str(path.resolve()),
         "name": path.name,
         "bucket": classify(path),
         "suffix": path.suffix.lower(),
@@ -141,15 +145,12 @@ def final_output_status(project_dir: Path, manifest: dict[str, Any] | None) -> l
     final_dir = Path(manifest["project"]["final_dir"]) if manifest else project_dir / "03_最终提交材料"
     rows: list[dict[str, Any]] = []
     for seq, meta in DOCUMENTS.items():
-        if seq == "07":
-            outputs = sorted((final_dir / "报批视频已压缩").glob("*.mp4")) if (final_dir / "报批视频已压缩").exists() else []
-        else:
-            outputs = sorted(path for path in final_dir.glob(f"{seq}*") if path.is_file())
+        outputs = outputs_for(final_dir, seq)
         rows.append(
             {
                 "seq": seq,
                 "name": meta["name"],
-                "status": "ok" if outputs else "missing",
+                "status": "present_unverified" if outputs else ("missing" if (manifest or {}).get("documents", {}).get(seq, meta).get("required") else "not_required_or_conditional"),
                 "outputs": [path.name for path in outputs[:12]],
                 "output_count": len(outputs),
             }
@@ -184,6 +185,13 @@ def manifest_summary(manifest: dict[str, Any] | None) -> dict[str, Any]:
 def build_pack(project_dir: Path, source_dirs: list[Path], args: argparse.Namespace) -> dict[str, Any]:
     roots = [project_dir, *source_dirs]
     manifest = load_manifest_optional(project_dir)
+    policy_issues = []
+    if manifest:
+        try:
+            config, _ = load_company_config(args.config)
+            policy_issues = subject_issues(manifest, config)
+        except (ValueError, OSError) as exc:
+            policy_issues = [str(exc)]
     mrz_scan_note = ""
     if args.scan_mrz:
         mrz_scan_note = run_mrz_scan(project_dir, source_dirs or [project_dir / "01_原始资料"], args.mrz_all_images)
@@ -201,9 +209,7 @@ def build_pack(project_dir: Path, source_dirs: list[Path], args: argparse.Namesp
     text_previews: list[dict[str, str]] = []
     if args.extract_text:
         text_candidates = [
-            Path(next(root for root in roots if (root / record["path"]).exists()) / record["path"])
-            if not Path(record["path"]).is_absolute()
-            else Path(record["path"])
+            Path(record["absolute_path"])
             for record in records
             if record["suffix"] in {".txt", ".md", ".csv", ".docx", ".pdf"}
         ]
@@ -227,6 +233,7 @@ def build_pack(project_dir: Path, source_dirs: list[Path], args: argparse.Namesp
         "project_dir": str(project_dir.resolve()),
         "source_dirs": [str(path.resolve()) for path in source_dirs],
         "manifest": manifest_summary(manifest),
+        "applicant_policy_issues": policy_issues,
         "final_outputs": final_output_status(project_dir, manifest),
         "passport_mrz": load_passport_mrz_results(project_dir),
         "passport_mrz_scan_note": mrz_scan_note,
@@ -239,7 +246,7 @@ def build_pack(project_dir: Path, source_dirs: list[Path], args: argparse.Namesp
             "不要把完整歌词、PDF 文本或长文件清单直接贴进上下文；需要时用脚本抽取局部预览。",
             "如果只改某一份文件，用 generate_domestic_package.py --only <序号> 局部重跑。",
             "视频先看压缩缓存和压缩报告，不重复读取或压缩未变化的大视频。",
-            "涉外护照/港澳台证件先跑 scan_passport_mrz.py，本地 MRZ 成功时不要再让模型看原图读字段。",
+            "本地 MRZ 提供有来源的候选字段；缺签发日起等字段仍需看原图，不把校验位通过当作全部字段正确。",
             "国内身份证先跑 scan_cn_id_ocr.py，本地 OCR 成功时只让模型做少量视觉抽检。",
         ],
         "high_token_steps": [
@@ -293,6 +300,18 @@ def run_cn_id_scan(project_dir: Path, source_dirs: list[Path], all_images: bool)
     return f"scan_cn_id_ocr.py failed: {result.stderr.strip() or result.stdout.strip()}"
 
 
+def verify_extraction_sources(results: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    for item in results:
+        source = Path(item["source_file"]) if item.get("source_file") else None
+        saved = item.get("source_fingerprint")
+        current = source_fingerprint(source) if source and source.is_file() else None
+        if not saved or current != saved:
+            item["status"] = "stale_or_unverified"
+            item["needs_manual_review"] = True
+            item["source_warning"] = "源文件缺失、变化或旧识别结果无指纹；先复核或重扫。"
+    return results
+
+
 def load_passport_mrz_results(project_dir: Path) -> dict[str, Any]:
     path = project_dir / "02_生成中间文件" / "passport_mrz" / "passport_mrz_results.json"
     if not path.exists():
@@ -301,6 +320,7 @@ def load_passport_mrz_results(project_dir: Path) -> dict[str, Any]:
         results = json.loads(path.read_text(encoding="utf-8"))
     except Exception as exc:
         return {"exists": True, "error": f"{exc.__class__.__name__}: {exc}", "results": []}
+    results = verify_extraction_sources(results)
     return {
         "exists": True,
         "path": str(path),
@@ -319,6 +339,7 @@ def load_cn_id_ocr_results(project_dir: Path) -> dict[str, Any]:
         results = json.loads(path.read_text(encoding="utf-8"))
     except Exception as exc:
         return {"exists": True, "error": f"{exc.__class__.__name__}: {exc}", "results": []}
+    results = verify_extraction_sources(results)
     return {
         "exists": True,
         "path": str(path),
@@ -339,6 +360,8 @@ def render_markdown(pack: dict[str, Any]) -> str:
         f"- project_dir: `{pack['project_dir']}`",
         f"- manifest_exists: `{manifest.get('exists')}`",
     ]
+    if pack.get("applicant_policy_issues"):
+        lines.extend("- 主体政策阻断：" + issue for issue in pack["applicant_policy_issues"])
     if manifest.get("exists"):
         lines.extend(
             [
@@ -428,6 +451,7 @@ def render_markdown(pack: dict[str, Any]) -> str:
 def main() -> None:
     parser = argparse.ArgumentParser(description="生成给 agent 使用的轻量上下文包，减少反复读大目录和长文档。")
     parser.add_argument("--project-dir", required=True, type=Path)
+    parser.add_argument("--config", type=Path)
     parser.add_argument("--source-dir", action="append", default=[], type=Path)
     parser.add_argument("--extract-text", action="store_true", help="为 docx/pdf/txt/csv 抽取短文本预览。")
     parser.add_argument("--scan-mrz", action="store_true", help="先本地扫描护照/港澳台证件 MRZ，并写入 context pack。")

@@ -1,0 +1,4 @@
+interface:
+  display_name: "报批资料上传"
+  short_description: "在两个独立网页安全办理国内或涉外演出报批上传"
+  default_prompt: "使用 $performance-approval-upload 先生成并校验报批上传数据.json，再锁定正确的国内或涉外网页，核对当前主体和草稿后续填上传，按已有授权完成；无最终提交授权时停在提交前。"

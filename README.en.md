@@ -1,97 +1,13 @@
-# Live Performance Approval Automation
+# Live Performance Approval · Sanitized Public Package
 
-中文说明：see [README.md](README.md).
+Version: `v2026.09.06.1` · [中文](README.md) · [Changelog](CHANGELOG.md)
 
-Current public version: `v2026.06.30.1`. See [CHANGELOG.md](CHANGELOG.md).
+Two Codex skills cover preparation and portal handoff for domestic and foreign/Hong Kong/Macau/Taiwan performance approvals. This repository contains generic workflows, reusable scripts and placeholder configuration. Supply and verify your own private templates, company credentials, seals, certificates and fonts before production use.
 
-This repository packages an AI-agent workflow for preparing Chinese commercial performance approval materials for live music projects.
+Both branches now use one configured applicant. Routing, venue roles and branch-specific material requirements remain separate. The update adds concise task routing, applicant-policy validation/migration, stale-output handling, and staged portal validation tied to the current session, account, draft and material digest.
 
-It supports two routing branches:
+Install both directories under `skill/` into your local Codex skills directory. Copy the material skill's example profile to an ignored `company-profile.local.json`, complete it, and configure the upload skill's local applicant policy as explained in its handoff reference. Placeholder values intentionally fail production initialization.
 
-- **Domestic approval**: all on-stage performers use mainland China resident ID cards.
-- **Foreign/HK/Macau/Taiwan approval**: any on-stage performer uses a foreign passport or Hong Kong/Macau/Taiwan travel document.
+`--approval-type auto` remains unresolved until performer evidence determines the branch. Existing project migration preserves originals and marks affected outputs stale; signed or sealed documents may require reissue. Materials passing QA are still subject to a separate live-portal check.
 
-This public repository is sanitized. It does not include real company seals, real company licenses, completed approval cases, IDs, passports, signatures, or private contact information.
-
-## Repository Layout
-
-```text
-docs/                                  Human-facing GitHub documentation
-skill/live-performance-approval/       Codex skill folder
-skill/live-performance-approval/scripts
-skill/live-performance-approval/references
-skill/live-performance-approval/assets
-```
-
-## Quick Start
-
-1. Install system dependencies listed in [docs/ENVIRONMENT.md](docs/ENVIRONMENT.md).
-2. Copy `skill/live-performance-approval/assets/config/company-profile.example.json` to a private local config file.
-3. Add your local Word templates under `skill/live-performance-approval/assets/templates/`.
-4. Install or configure local fonts as described in `skill/live-performance-approval/assets/fonts/README.md`.
-5. Add seal images only in a private local branch or untracked local file area.
-6. Ask an agent to use `skill/live-performance-approval` to initialize a project and generate approval materials.
-
-Example:
-
-```bash
-python3 skill/live-performance-approval/scripts/check_environment.py
-python3 skill/live-performance-approval/scripts/prepare_agent_context.py \
-  --project-dir ./example-project \
-  --source-dir ./example-project/01_原始资料 \
-  --extract-text \
-  --scan-cn-id \
-  --scan-mrz
-python3 skill/live-performance-approval/scripts/init_project.py \
-  --config skill/live-performance-approval/assets/config/company-profile.example.json \
-  --project-dir ./example-project \
-  --event-name "Example Band（示例乐队）2026 Tour" \
-  --event-date 2026-11-13 \
-  --approval-type auto \
-  --subject applicant_a
-```
-
-## Safety Boundary
-
-Do not push private data to a public Git remote. Use a separate private repository or private branch with no shared public history for real company materials.
-
-See [docs/SANITIZATION.md](docs/SANITIZATION.md).
-
-## v2026.06.30.1 Policy Updates
-
-- Hardened official-template fidelity, Songti embedding, Word-to-PDF pagination, multi-page roster sealing, venue-consent seal placement, lyric translation, and certificate-validity rules.
-- Documented the LibreOffice font-substitution fix and the verified local Word, PowerPoint, Excel, data-processing, and PDF Python stack.
-- Clarified foreign-package provider-label, fire-permit, and non-lyric structural-label policies.
-- The public package remains sanitized and contains no real company assets, seals, identity documents, private fonts, fixed certificates, or completed cases.
-
-## v2026.06.26.1 Policy Updates
-
-- Added local Chinese ID-card OCR with `scan_cn_id_ocr.py`, powered by PaddleOCR. It extracts identity text, ID-number validation, validity-period fields, renewal warnings, and manual-review flags into structured reports.
-- Added local passport and HK/Macau/Taiwan travel-document MRZ extraction with `scan_passport_mrz.py`, including ICAO Doc 9303 check-digit validation.
-- Added `prepare_agent_context.py` with `--scan-cn-id` and `--scan-mrz` so agents can read compact local extraction reports before opening sensitive raw identity images.
-- The public package keeps only generic scripts and placeholder project metadata; it excludes real company profiles, seals, licenses, permits, IDs, passports, and completed samples.
-
-## v2026.06.24.1 Policy Updates
-
-- Added domestic high-risk rules: the `00` application form must preserve the trained Word template and page geometry; do not redraw or simplify it.
-- Clarified total-roster versus per-song performer logic: `00/01/02/03/04/08` use all actual on-stage performers, while `05/06/07` use each song's actual performers and log partial-participation songs in reminders.
-- Strengthened font and signature QA: submitter labels, copy-verification notes, and authorization signatures must use configured handwriting fonts with glyph coverage checked before delivery.
-- Expanded public sanitization checks for authorized signer names, fixed identity attachments, business licenses, fire permits, and similar private dependencies.
-
-## v2026.06.22.2 Policy Updates
-
-- When Hong Kong/Macau/Taiwan travel documents contain MRZ, use MRZ to extract and cross-check identity fields.
-- Tested Taiwan resident mainland travel permit three-line MRZ: permit number, expiry date, and date of birth can be validated.
-- Workflow optimization: lock identity data after OCR, MRZ validation, and reminder logging before generating downstream `01/02/03/04` files.
-
-## v2026.06.22.1 Policy Updates
-
-- Added the missing public update note for foreign passport MRZ validation: passport information should be checked against ICAO Doc 9303 TD3 MRZ fields with Modulus 10 weighting `7, 3, 1` before filling passport number, date of birth, or expiry.
-- Foreign lyric headings should keep only sequence number plus song title and translation. Do not append performer rosters, band member lists, or artist lists after song titles.
-- This lyric-heading change applies only to foreign/HK/Macau/Taiwan lyric materials. Domestic lyric materials are unchanged.
-
-## v2026.06.17.1 Policy Updates
-
-- For foreign split-bill projects, video requirements are counted per band/act: each band usually needs 1-2 videos, rather than the whole event needing only 1-2 videos.
-- For foreign `02` performer certificate scan Word files, the page should contain only the certificate/passport scan image itself. Do not add an extra name label, heading, or explanatory text inside the page; keep the name in the filename only.
-- For foreign `04` artist consent letters, generated signatures should follow the script of the name: Latin-script names use Latin signature fonts, Chinese names use Chinese handwriting fonts. Real signatures remain preferred when available and count-matched.
+Public release checks use a text-file allowlist, a private denylist kept outside this repository, and reachable Git-blob auditing. A documented exact historical-blob exception covers previously published branding that has already been removed; it never exempts current files or credentials. No private binary assets are included.

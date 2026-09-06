@@ -1,0 +1,290 @@
+{
+  "schema_version": "2026-09-05-v6",
+  "approval_branch": "foreign",
+  "portal": {
+    "host": "whsq.mr.mct.gov.cn",
+    "matter": "营业性演出（涉外/涉港澳台）",
+    "page_markers": [
+      "文化和旅游市场",
+      "营业性演出",
+      "涉外/涉港澳台"
+    ]
+  },
+  "ready_for_portal_check": false,
+  "ready_for_upload": false,
+  "project_root": ".",
+  "application": {
+    "event_type": {
+      "semantic_type": "event_type",
+      "value": "涉外",
+      "source": "branch_rule",
+      "target_field": "演出类型"
+    },
+    "event_name": {
+      "semantic_type": "event_name",
+      "value": "",
+      "source": "",
+      "target_field": "演出名称"
+    },
+    "event_start_date": {
+      "semantic_type": "event_start_date",
+      "value": "",
+      "source": "",
+      "target_field": "演出开始日期"
+    },
+    "event_end_date": {
+      "semantic_type": "event_end_date",
+      "value": "",
+      "source": "",
+      "target_field": "演出结束日期"
+    },
+    "entry_date": {
+      "semantic_type": "entry_date",
+      "value": "",
+      "source": "",
+      "target_field": "入境日期"
+    },
+    "exit_date": {
+      "semantic_type": "exit_date",
+      "value": "",
+      "source": "",
+      "target_field": "出境日期"
+    },
+    "entry_exit_basis": {
+      "semantic_type": "entry_exit_basis",
+      "value": "computed_10_days",
+      "source": "user_rule_or_formal_material",
+      "target_field": "日期校验依据"
+    },
+    "main_country_region": {
+      "semantic_type": "country_region",
+      "value": "",
+      "source": "",
+      "target_field": "表演团体/个人主要国别或地区"
+    },
+    "audience_min": {
+      "semantic_type": "audience_min",
+      "value": 0,
+      "source": "",
+      "target_field": "观众人数下限"
+    },
+    "audience_max": {
+      "semantic_type": "audience_max",
+      "value": 0,
+      "source": "",
+      "target_field": "观众人数上限"
+    },
+    "handler": {
+      "semantic_type": "handler",
+      "value": "",
+      "source": "private_configuration",
+      "target_field": "办理人"
+    },
+    "applicant_entity": {
+      "semantic_type": "applicant_entity",
+      "value": "",
+      "source": "assets/config/applicant-policy.local.json；就绪前补充最终材料来源",
+      "target_field": "申报单位/账号企业信息核对",
+      "match_mode": "exact_company_name"
+    }
+  },
+  "performers": [
+    {
+      "sequence": 1,
+      "stable_key": "",
+      "performer_category": {
+        "semantic_type": "performer_category",
+        "value": "non_mainland",
+        "source": "",
+        "target_field": "演员类别/分支核对"
+      },
+      "fields": {
+        "name": {
+          "semantic_type": "performer_name",
+          "value": "",
+          "source": "",
+          "target_field": "姓名"
+        },
+        "gender": {
+          "semantic_type": "gender",
+          "value": "",
+          "source": "",
+          "target_field": "性别"
+        },
+        "role": {
+          "semantic_type": "performer_role",
+          "value": "",
+          "source": "",
+          "target_field": "职务"
+        },
+        "country_region": {
+          "semantic_type": "country_region",
+          "value": "",
+          "source": "",
+          "target_field": "国家/地区"
+        },
+        "certificate_type": {
+          "semantic_type": "certificate_type",
+          "value": "",
+          "source": "",
+          "target_field": "证件类型"
+        },
+        "certificate_number": {
+          "semantic_type": "certificate_number",
+          "value": "",
+          "source": "",
+          "target_field": "证件号码"
+        },
+        "certificate_valid_from": {
+          "semantic_type": "certificate_valid_from",
+          "value": "",
+          "source": "",
+          "target_field": "证件开始日期"
+        },
+        "certificate_valid_to": {
+          "semantic_type": "certificate_valid_to",
+          "value": "",
+          "source": "",
+          "target_field": "证件结束日期"
+        },
+        "birth_date": {
+          "semantic_type": "birth_date",
+          "value": "",
+          "source": "",
+          "target_field": "出生日期"
+        }
+      },
+      "upload_order": []
+    }
+  ],
+  "programs": [
+    {
+      "sequence": 1,
+      "stable_key": "",
+      "title": {
+        "semantic_type": "song_title",
+        "value": "",
+        "source": "",
+        "target_field": "节目名称"
+      },
+      "program_type": {
+        "semantic_type": "program_type",
+        "source_value": "",
+        "value": "",
+        "mapping_reason": "",
+        "source": "",
+        "target_field": "节目类型"
+      },
+      "upload_order": []
+    }
+  ],
+  "venue": {
+    "fields": {
+      "venue_type": {
+        "semantic_type": "venue_type",
+        "source_value": "",
+        "value": "",
+        "mapping_reason": "",
+        "source": "",
+        "target_field": "场所类型"
+      },
+      "venue_name": {
+        "semantic_type": "venue_name",
+        "value": "",
+        "source": "",
+        "target_field": "场所名称"
+      },
+      "venue_province": {
+        "semantic_type": "venue_province",
+        "value": "",
+        "source": "",
+        "target_field": "省"
+      },
+      "venue_city": {
+        "semantic_type": "venue_city",
+        "value": "",
+        "source": "",
+        "target_field": "市"
+      },
+      "venue_district": {
+        "semantic_type": "venue_district",
+        "value": "",
+        "source": "",
+        "target_field": "区/县"
+      },
+      "venue_address": {
+        "semantic_type": "venue_address",
+        "value": "",
+        "source": "",
+        "target_field": "详细地址"
+      },
+      "venue_operator_entity": {
+        "semantic_type": "venue_operator_entity",
+        "value": "",
+        "source": "",
+        "target_field": "场地材料归属核验"
+      }
+    },
+    "sessions": [
+      {
+        "sequence": 1,
+        "stable_key": "",
+        "date": {
+          "semantic_type": "session_date",
+          "value": "",
+          "source": "",
+          "target_field": "演出日期"
+        },
+        "start_time": {
+          "semantic_type": "session_start_time",
+          "value": "",
+          "source": "",
+          "target_field": "开始时间"
+        },
+        "end_time": {
+          "semantic_type": "session_end_time",
+          "value": "",
+          "source": "",
+          "target_field": "结束时间"
+        },
+        "represented_session_count": 1
+      }
+    ],
+    "declared_session_count": 1,
+    "upload_order": [],
+    "fire_safety_requirement": {
+      "required": true,
+      "source": "LOCAL_PORTAL_REQUIREMENT_TO_VERIFY"
+    }
+  },
+  "qa": {
+    "program_order_locked": false,
+    "performer_count_matched": false,
+    "entry_exit_dates_valid": false,
+    "all_paths_exist": false,
+    "hashes_recorded": false,
+    "cross_file_consistent": false,
+    "slot_formats_valid": false,
+    "no_duplicate_uploads": false,
+    "total_lyrics_first_program_only": false,
+    "session_count_consistent": false,
+    "derived_files_visually_checked": false,
+    "document_owners_valid": false,
+    "applicant_documents_match_policy": false,
+    "signed_materials_checked": false
+  },
+  "runtime_qa": {
+    "checked_at": "",
+    "portal_session_fingerprint": "",
+    "draft_fingerprint": "",
+    "materials_sha256": "",
+    "observed_applicant_entity": "",
+    "applicant_evidence_source": "",
+    "portal_matches_branch": false,
+    "matter_matches": false,
+    "target_draft_matches": false,
+    "applicant_entity_matches_portal": false,
+    "existing_rows_reconciled": false
+  },
+  "warnings": []
+}

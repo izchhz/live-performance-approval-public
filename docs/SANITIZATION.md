@@ -31,3 +31,13 @@ find . -type f \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.p
 ```
 
 Review every binary file manually before publishing.
+
+## 自动发布检查（2026-09-05）
+
+在仓库外保存私有值 JSON 列表，执行：
+
+```bash
+python3 scripts/verify_public_package.py . --denylist /private/path/denylist.json --history --history-exceptions docs/public-history-exceptions.json
+```
+
+扫描当前文件、符号链接、非白名单资产、Unicode 转义值及可达 Git blobs。历史豁免只对应已审阅的特定不可变 blob、路径和类别；不适用于当前文件，也不豁免密钥。不要把私有 denylist 或包含真实业务内容的测试输出提交到公开仓库。公私版本保持独立历史。

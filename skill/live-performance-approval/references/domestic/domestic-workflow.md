@@ -58,6 +58,10 @@ python3 scripts/scan_cn_id_ocr.py --project-dir <project-dir> --source-dir <sour
 - Put each foreign-language lyric line on its own line and follow it with a separate full-width-parenthesized Chinese translation. Keep each song heading with following content.
 - Translate all foreign text in event names, song titles, lyrics, and media filenames.
 - Use the final program list as the order source for lyrics and videos.
-- Remove missing-video songs from program/lyrics and re-number when required by local policy.
+- Report missing videos. Apply song removal only under an applicable user instruction, then synchronize numbering across dependent files.
 - Apply seals according to document role, not blindly according to applicant.
 - Render submitter labels, copy-verification text, and authorization signatures with configured handwriting fonts after glyph coverage checks. Missing-glyph boxes or signature overflow are delivery blockers.
+
+## Conditional translation qualification
+
+Where the locally approved domestic workflow uses a foreign-language ratio threshold, calculate it from final lyrics only: foreign letters divided by Chinese characters plus foreign letters, ignoring punctuation, digits, headings and metadata. Record the threshold and evidence in local configuration. The maintained private workflow treats 25%–30% as near-threshold and above 30% as mandatory; this is an organization-specific material rule, not a universal legal rule. Translation qualifications and per-page translation seals must come from the translation provider. Applicant seals never replace translator certification.

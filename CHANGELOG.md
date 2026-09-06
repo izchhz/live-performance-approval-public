@@ -1,5 +1,21 @@
 # Changelog
 
+## v2026.09.06.1 — 2026-09-06
+
+### Changed
+
+- Both approval branches use a single configured applicant. Branch-specific portal, authority, venue and material rules remain independent.
+- Replaced repeated entrypoint instructions with task-directed references, evidence tracking, incremental regeneration and explicit stale-output handling. No model-name dependency was introduced.
+- Updated project initialization and applicant-policy validation/migration; `auto` remains unresolved, example values fail real setup, and old subject outputs require rebuilding.
+- Added the companion portal-upload skill with separate schema/materials/upload validation, current account and draft checks, material-digest binding, deterministic attachment identities and bounded retries.
+- Preserved document-template, translation, certificate and branch-specific material rules. Public installations still require private assets and local verification.
+
+### Publishing and privacy
+
+- Added a fail-closed text allowlist and sensitive-value/history checker. Its private denylist stays outside the repository; diagnostics never echo matched values.
+- Added a narrowly documented immutable historical-blob exception for old, already-published branding removed in 2026; current files and all credential findings remain blocked.
+- Published placeholders and generic scripts only. No real entities, private certificates, seals, IDs, signatures, fonts, media, completed cases or private repository history were copied.
+
 ## v2026.06.30.1
 
 ### Changed

@@ -369,6 +369,11 @@ def main() -> None:
                 }
             )
 
+    from project_manifest import source_fingerprint
+    for item in results:
+        source = Path(item["source_file"]) if item.get("source_file") else None
+        if source and source.is_file():
+            item["source_fingerprint"] = source_fingerprint(source)
     json_path = output_dir / "cn_id_ocr_results.json"
     md_path = output_dir / "cn_id_ocr_report.md"
     json_path.write_text(json.dumps(results, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

@@ -73,4 +73,8 @@ python3 scripts/scan_passport_mrz.py --project-dir <project-dir> --source-dir <s
 - Video usually covers 1-2 songs for a single act.
 - For split-bill projects, every band/act should have 1-2 videos represented.
 - Output filenames must match the final program list.
-- If audio is missing, remove the song from program/lyrics and re-number, then report it.
+- If audio is missing, record the gap. Remove the song only under an applicable user instruction, then synchronize program and lyrics numbering.
+
+## Branch-specific material rules
+
+Do not add submitter/provider handwriting to foreign materials. The fire-safety/opening permit stays unchanged, without added seals, verification text or provider labels. Remove non-lyric labels (Verse, Chorus, Bridge, Intro, Outro) while preserving lyric content and separate parenthesized Chinese translation lines. Roster validity contains both start and end dates from evidence.

@@ -1,0 +1,14 @@
+{
+  "version": "2026-09-05",
+  "applicant_policy": {
+    "company_key": "applicant_a",
+    "legal_name": "",
+    "effective_date": "2026-09-05",
+    "applies_to": [
+      "domestic",
+      "foreign"
+    ],
+    "source": "LOCAL_CONFIGURATION_REQUIRED"
+  },
+  "asset_pins": {}
+}

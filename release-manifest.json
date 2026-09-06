@@ -1,0 +1,13 @@
+{
+  "release_version": "v2026.09.06.1",
+  "published_date": "2026-09-06",
+  "policy_effective_date": "2026-09-05",
+  "visibility": "sanitized_public",
+  "skills": {
+    "live-performance-approval": "2026.09.06.1",
+    "performance-approval-upload": "2.0.0"
+  },
+  "upload_schema": "2026-09-05-v6",
+  "model_specific": false,
+  "private_assets_included": false
+}

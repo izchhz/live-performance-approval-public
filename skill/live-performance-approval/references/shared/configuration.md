@@ -29,3 +29,7 @@ Do not hardcode company names, addresses, license numbers, or seal paths inside 
 ## Public Repository Rule
 
 Do not commit real company names, license numbers, addresses, seals, identity documents, signatures, completed examples, or private contact information.
+
+## Unified applicant policy
+
+Configure `applicant_policy.company_key`, `version`, and `effective_date`. Both `domestic.applicant_company_key` and `foreign.applicant_company_key` must select that same company. Add its `business_license_path` alongside its legal name, license, address and seal. Venue company keys remain independent. Placeholder profiles intentionally fail real initialization; fill an ignored local profile first. Never keep a second applicant active only because an old example used it.

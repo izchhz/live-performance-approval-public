@@ -21,5 +21,5 @@ Exclude non-performing staff from performer lists, including sound engineers, li
 
 ## Missing Media
 
-- Domestic: if a required video is missing, remove the missing song from program/lyrics and re-number, then report it.
-- Foreign: all songs need audio; only 1-2 songs usually need video. If audio is missing, remove the missing song from program/lyrics and re-number, then report it.
+- Domestic: report missing required videos. Remove a song and renumber dependent files only when the user has authorized that policy.
+- Foreign: all songs need audio; video coverage is per act. Report missing audio; remove songs only under an applicable user instruction.

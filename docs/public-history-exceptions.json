@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "scope": "Historical Git blobs only. Current files always receive the complete scan without exceptions. Enable explicitly with --history --history-exceptions docs/public-history-exceptions.json.",
+  "exceptions": [
+    {
+      "object": "4fca6b26a2e7a7273c26f7b1687392fcfde60bb0",
+      "path": "skill/live-performance-approval/scripts/scrub_docx_metadata.py",
+      "error": "private-value",
+      "reason": "Reviewed legacy blob: its two Word author-metadata constants contain an already-public brand label, not credentials, company registration data, identity documents, signatures, or private contact details. Commit 34977b66b6b11ae98105f34a69fa30a448518c97 replaced the label on 2026-06-24. Preserve existing public history; allow only this exact blob and finding category. Current files and every other finding remain blocked."
+    }
+  ]
+}

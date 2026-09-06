@@ -1,0 +1,306 @@
+{
+  "schema_version": "2026-09-05-v6",
+  "approval_branch": "domestic",
+  "portal": {
+    "host": "recept.zjzwfw.gov.cn",
+    "matter": "举办内地文艺表演团体、个人参加的营业性演出审批",
+    "page_markers": [
+      "浙江政务服务网",
+      "在线填表",
+      "上传材料"
+    ]
+  },
+  "ready_for_portal_check": false,
+  "ready_for_upload": false,
+  "project_root": ".",
+  "application": {
+    "applicant_entity": {
+      "semantic_type": "applicant_entity",
+      "value": "",
+      "source": "assets/config/applicant-policy.local.json；就绪前补充最终材料来源",
+      "target_field": "申报单位/账号企业信息核对",
+      "match_mode": "exact_company_name"
+    },
+    "performance_region": {
+      "semantic_type": "performance_region",
+      "value": "",
+      "source": "",
+      "target_field": "演出区域"
+    },
+    "legal_representative_phone": {
+      "semantic_type": "legal_representative_phone",
+      "value": "",
+      "source": "",
+      "target_field": "法定代表人电话"
+    },
+    "event_name": {
+      "semantic_type": "event_name",
+      "value": "",
+      "source": "",
+      "target_field": "演出名称"
+    },
+    "license_number": {
+      "semantic_type": "license_number",
+      "value": "",
+      "source": "",
+      "target_field": "主体许可证号"
+    },
+    "main_program_type": {
+      "semantic_type": "program_type",
+      "source_value": "",
+      "value": "",
+      "mapping_reason": "",
+      "source": "",
+      "target_field": "主要演出类型"
+    },
+    "major_performers": {
+      "semantic_type": "major_performers",
+      "value": "",
+      "source": "",
+      "target_field": "主要演员（团体）"
+    },
+    "resident_performance": {
+      "semantic_type": "resident_performance",
+      "value": "",
+      "source": "",
+      "target_field": "驻场演出"
+    },
+    "contact_name": {
+      "semantic_type": "contact_name",
+      "value": "",
+      "source": "",
+      "target_field": "项目联络人"
+    },
+    "contact_phone": {
+      "semantic_type": "contact_phone",
+      "value": "",
+      "source": "",
+      "target_field": "项目联络人移动方式"
+    },
+    "contact_email": {
+      "semantic_type": "contact_email",
+      "value": "",
+      "source": "",
+      "target_field": "电子邮箱"
+    }
+  },
+  "performance_plans": [
+    {
+      "sequence": 1,
+      "stable_key": "",
+      "fields": {
+        "event_start_date": {
+          "semantic_type": "event_start_date",
+          "value": "",
+          "source": "",
+          "target_field": "开始日期"
+        },
+        "event_end_date": {
+          "semantic_type": "event_end_date",
+          "value": "",
+          "source": "",
+          "target_field": "结束日期"
+        },
+        "session_count": {
+          "semantic_type": "session_count",
+          "value": 1,
+          "source": "",
+          "target_field": "场次数"
+        },
+        "venue_operator_entity": {
+          "semantic_type": "venue_operator_entity",
+          "value": "",
+          "source": "user_rule_2026-07-18",
+          "target_field": "材料归属核验"
+        },
+        "venue_name": {
+          "semantic_type": "venue_name",
+          "value": "",
+          "source": "",
+          "target_field": "演出场所名称"
+        },
+        "venue_type": {
+          "semantic_type": "venue_type",
+          "source_value": "",
+          "value": "",
+          "mapping_reason": "",
+          "source": "",
+          "target_field": "演出场所类型"
+        },
+        "venue_city": {
+          "semantic_type": "venue_city",
+          "value": "",
+          "source": "",
+          "target_field": "演出地-市"
+        },
+        "venue_district": {
+          "semantic_type": "venue_district",
+          "value": "",
+          "source": "",
+          "target_field": "演出地-区县"
+        },
+        "venue_address": {
+          "semantic_type": "venue_address",
+          "value": "",
+          "source": "",
+          "target_field": "演出地址详细信息"
+        }
+      },
+      "upload_order": []
+    }
+  ],
+  "programs": [
+    {
+      "sequence": 1,
+      "stable_key": "",
+      "song_title": {
+        "semantic_type": "song_title",
+        "value": "",
+        "source": "",
+        "target_field": "内部匹配键"
+      },
+      "translated_title": {
+        "semantic_type": "translated_title",
+        "value": "",
+        "source": "",
+        "target_field": "内部匹配键"
+      },
+      "performer_names": {
+        "semantic_type": "program_performer_names",
+        "value": [],
+        "source": "",
+        "target_field": "内部匹配键"
+      },
+      "display_name": {
+        "semantic_type": "domestic_program_display_name",
+        "value": "",
+        "source": "",
+        "target_field": "节目名称"
+      },
+      "program_type": {
+        "semantic_type": "program_type",
+        "source_value": "",
+        "value": "",
+        "mapping_reason": "",
+        "source": "",
+        "target_field": "演出类型"
+      },
+      "upload_order": []
+    }
+  ],
+  "performers": [
+    {
+      "sequence": 1,
+      "stable_key": "",
+      "fields": {
+        "name": {
+          "semantic_type": "performer_name",
+          "value": "",
+          "source": "",
+          "target_field": "参演者姓名"
+        },
+        "certificate_type": {
+          "semantic_type": "certificate_type",
+          "value": "",
+          "source": "",
+          "target_field": "身份证件类型"
+        },
+        "certificate_number": {
+          "semantic_type": "certificate_number",
+          "value": "",
+          "source": "",
+          "target_field": "身份证件号"
+        },
+        "role": {
+          "semantic_type": "performer_role",
+          "value": "",
+          "source": "",
+          "target_field": "职务"
+        },
+        "gender": {
+          "semantic_type": "gender",
+          "value": "",
+          "source": "",
+          "target_field": "性别"
+        },
+        "birth_date": {
+          "semantic_type": "birth_date",
+          "value": "",
+          "source": "",
+          "target_field": "出生日期（个体）"
+        },
+        "certificate_long_term": {
+          "semantic_type": "certificate_long_term",
+          "value": false,
+          "source": "",
+          "target_field": "证件长期有效"
+        },
+        "certificate_valid_from": {
+          "semantic_type": "certificate_valid_from",
+          "value": "",
+          "source": "",
+          "target_field": "证件有效期开始日期"
+        },
+        "certificate_valid_to": {
+          "semantic_type": "certificate_valid_to",
+          "value": "",
+          "source": "",
+          "target_field": "证件有效期结束日期"
+        },
+        "apply_as_group": {
+          "semantic_type": "apply_as_group",
+          "value": false,
+          "source": "",
+          "target_field": "是否以团体形式申请"
+        },
+        "group_name": {
+          "semantic_type": "group_name",
+          "value": "",
+          "source": "",
+          "target_field": "演员的团体名称"
+        },
+        "is_minor": {
+          "semantic_type": "is_minor",
+          "value": false,
+          "source": "calculated_from_birth_date_and_event_date",
+          "target_field": "附件条件判断"
+        }
+      },
+      "upload_order": [],
+      "performer_category": {
+        "semantic_type": "performer_category",
+        "value": "mainland",
+        "source": "",
+        "target_field": "演员类别/分支核对"
+      }
+    }
+  ],
+  "material_uploads": [],
+  "qa": {
+    "program_order_locked": false,
+    "performer_count_matched": false,
+    "all_paths_exist": false,
+    "hashes_recorded": false,
+    "cross_file_consistent": false,
+    "slot_formats_valid": false,
+    "document_owners_valid": false,
+    "no_duplicate_uploads": false,
+    "single_total_lyrics": false,
+    "applicant_documents_match_policy": false,
+    "signed_materials_checked": false
+  },
+  "runtime_qa": {
+    "checked_at": "",
+    "portal_session_fingerprint": "",
+    "draft_fingerprint": "",
+    "materials_sha256": "",
+    "observed_applicant_entity": "",
+    "applicant_evidence_source": "",
+    "portal_matches_branch": false,
+    "matter_matches": false,
+    "target_draft_matches": false,
+    "applicant_entity_matches_portal": false,
+    "existing_rows_reconciled": false
+  },
+  "warnings": []
+}
